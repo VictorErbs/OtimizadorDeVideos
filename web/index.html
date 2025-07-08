@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title id="main_title">Otimizador de Vídeos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/web/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#fff" opacity="0.2"/><path d="M8 8L16 12L8 16V8Z" fill="#fff"/></svg>
+            <span id="main_title_span">Otimizador de Vídeos</span>
+        </div>
+        <select id="lang_select" onchange="selecionarIdioma(this)">
+            <option value="pt">🌐 Language / Idioma</option>
+            <option value="pt">Português</option>
+            <option value="en">English</option>
+        </select>
+    </header>
+    <main>
+        <section class="upload upload-top">
+            <div class="upload-explain">
+                <h2 id="upload_title">Envie seu vídeo para otimizar</h2>
+                <p id="upload_desc">Selecione um arquivo de vídeo do seu computador. Após o upload, clique em "Otimizar" para baixar automaticamente o vídeo otimizado.</p>
+            </div>
+            <div class="input-group">
+                <input type="file" id="upload_video" accept="video/*">
+                <button id="upload_button" onclick="enviarVideo()">Upload</button>
+            </div>
+        </section>
+        <section class="options">
+            <div class="options-explain">
+                <h3 id="how_title">Como funciona a otimização?</h3>
+                <ul>
+                    <li id="how_codec"><b>Codec:</b> Escolha o formato de compressão. <b>H.264</b> é compatível com todos os dispositivos. <b>H.265/HEVC</b> gera arquivos menores com ótima qualidade, mas pode não rodar em aparelhos antigos. <b>AV1</b> é o mais eficiente, mas pode ser mais lento e nem todo player suporta.</li>
+                    <li id="how_quality"><b>Qualidade (CRF):</b> Quanto menor o valor, maior a qualidade e o tamanho do arquivo. <b>Alta</b> (18), <b>Média</b> (23), <b>Baixa</b> (28).</li>
+                    <li id="how_preset"><b>Preset:</b> Controla a velocidade de compressão. <b>Mais lento</b> = melhor compressão (arquivo menor, mesma qualidade).</li>
+                    <li id="how_accelerator"><b>Acelerador:</b> Use <b>CPU</b> para máxima compatibilidade ou <b>NVIDIA</b> para acelerar com GPU.</li>
+                    <li id="how_2pass"><b>Two-pass:</b> Faz duas passagens para máxima qualidade em arquivos pequenos (recomendado para bitrate fixo).</li>
+                    <li id="how_denoise"><b>Denoise:</b> Remove ruídos do vídeo antes de comprimir, melhorando a qualidade visual em vídeos antigos ou com granulação.</li>
+                    <li id="how_resize"><b>Resize:</b> Redimensiona o vídeo para largura/altura desejada. Deixe em branco para manter o tamanho original.</li>
+                </ul>
+            </div>
+            <div class="input-group">
+                <label id="label_codec" for="codec"></label>
+                <select id="codec">
+                    <option value="h264">H.264 (Compatível)</option>
+                    <option value="h265">H.265 / HEVC (Alta eficiência)</option>
+                    <option value="av1">AV1 (Máxima compressão, mais lento)</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label id="label_otimizacao" for="crf"></label>
+                <select id="crf"></select>
+                <!-- O campo de bitrate customizado será inserido via JS -->
+            </div>
+            <div class="input-group">
+                <label id="label_preset" for="preset"></label>
+                <select id="preset">
+                    <option value="ultrafast">Ultrafast</option>
+                    <option value="fast">Fast</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="slow">Slow</option>
+                    <option value="veryslow">Very Slow</option>
+                    <option value="balanced">Balanced (GPU)</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label id="label_gpu" for="gpu"></label>
+                <select id="gpu">
+                    <!-- Opções carregadas dinamicamente pelo JS -->
+                </select>
+            </div>
+            <div class="input-group">
+                <label><input type="checkbox" id="two_pass"> <span id="twopass_label">Two-pass (2-pass)</span></label>
+            </div>
+            <div class="input-group">
+                <label><input type="checkbox" id="denoise"> <span id="denoise_label">Denoise (reduzir ruído)</span></label>
+            </div>
+            <div class="input-group">
+                <label id="label_resize">Resize:</label>
+                <input id="resize_w" type="number" min="0" placeholder="Largura">
+                <input id="resize_h" type="number" min="0" placeholder="Altura">
+            </div>
+        </section>
+        <section class="actions">
+            <button id="btn_otimizar" onclick="otimizarSelecionado()" type="button">Otimizar</button>
+            <div id="spinner" class="spinner" style="display:none"></div>
+        </section>
+        <section class="relatorio">
+            <pre id="relatorio" aria-live="polite"></pre>
+        </section>
+    </main>
+    <footer>
+        <span id="footer_text">© 2025 Otimizador de Vídeos</span>
+        <span class="footer-icons">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M12 2L15 8H9L12 2Z" fill="#fff"/><circle cx="12" cy="16" r="4" fill="#fff" opacity="0.2"/></svg>
+        </span>
+    </footer>
+    <script src="/web/app.js"></script>
+</body>
+</html>

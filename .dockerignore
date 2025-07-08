@@ -1,0 +1,14 @@
+main.py
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.git/
+.gitignore
+README.md
+.vscode/
+.DS_Store
+Thumbs.db
+videos/
+saida/
+*.log

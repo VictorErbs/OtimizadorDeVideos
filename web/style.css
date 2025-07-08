@@ -1,0 +1,265 @@
+:root {
+    --primary: #3a86ff;
+    --secondary: #8338ec;
+    --accent: #ffbe0b;
+    --bg: #181a20;
+    --bg-light: #23263a;
+    --text: #fff;
+    --text-muted: #b0b0b0;
+    --radius: 12px;
+    --shadow: 0 4px 24px 0 rgba(0,0,0,0.12);
+    --font-main: 'Inter', Arial, sans-serif;
+    --font-title: 'Exo', 'Inter', Arial, sans-serif;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: var(--text);
+    font-family: var(--font-main);
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    padding: 1rem 2rem;
+    box-shadow: var(--shadow);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+#lang_select {
+    background: var(--bg-light);
+    color: var(--text);
+    border: none;
+    border-radius: var(--radius);
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    outline: none;
+    transition: background 0.2s;
+}
+#lang_select:focus { box-shadow: 0 0 0 2px var(--accent); }
+
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+    background: var(--bg-light);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.inputs, .options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.input-group {
+    flex: 1 1 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-row {
+    display: flex;
+    gap: 0.5rem;
+}
+
+input[type="text"], input[type="number"], select {
+    background: #22263a;
+    color: var(--text);
+    border: 1px solid #333;
+    border-radius: var(--radius);
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.2s;
+    width: 100%;
+}
+input:focus, select:focus { border: 1.5px solid var(--primary); }
+
+button {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    color: var(--text);
+    border: none;
+    border-radius: var(--radius);
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px 0 rgba(58,134,255,0.08);
+    transition: background 0.2s, transform 0.1s;
+    outline: none;
+}
+button:hover, button:focus {
+    background: linear-gradient(90deg, var(--secondary), var(--primary));
+    transform: translateY(-2px) scale(1.03);
+}
+
+.videos {
+    background: #20223a;
+    border-radius: var(--radius);
+    padding: 1rem;
+    box-shadow: 0 2px 8px 0 rgba(58,134,255,0.04);
+}
+.videos h2 {
+    font-family: var(--font-title);
+    font-size: 1.2rem;
+    margin: 0 0 0.5rem 0;
+    color: var(--accent);
+}
+#lista_videos {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 220px;
+    overflow-y: auto;
+}
+#lista_videos li {
+    padding: 0.6rem 1rem;
+    border-radius: var(--radius);
+    margin-bottom: 0.3rem;
+    background: #23263a;
+    color: var(--text);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    outline: none;
+}
+#lista_videos li.selected, #lista_videos li:focus {
+    background: var(--primary);
+    color: #fff;
+    font-weight: 600;
+}
+#lista_videos li:hover:not(.selected) {
+    background: var(--secondary);
+    color: #fff;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    justify-content: flex-end;
+}
+
+.spinner {
+    border: 4px solid #fff2;
+    border-top: 4px solid var(--accent);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    animation: spin 1s linear infinite;
+    margin-left: 1rem;
+}
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+.relatorio {
+    background: #181a20;
+    border-radius: var(--radius);
+    padding: 1rem;
+    min-height: 60px;
+    color: var(--text-muted);
+    font-size: 1rem;
+    font-family: 'Fira Mono', 'Consolas', monospace;
+    box-shadow: 0 2px 8px 0 rgba(255,190,11,0.04);
+}
+
+footer {
+    margin-top: 2rem;
+    background: linear-gradient(90deg, var(--secondary), var(--primary));
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    border-radius: var(--radius) var(--radius) 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1rem;
+    font-family: var(--font-title);
+}
+.footer-icons svg {
+    vertical-align: middle;
+    opacity: 0.7;
+}
+
+.options-explain {
+    flex: 1 1 320px;
+    background: #23263a;
+    border-radius: var(--radius);
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-muted);
+    font-size: 1rem;
+    box-shadow: 0 2px 8px 0 rgba(58,134,255,0.04);
+    min-width: 280px;
+    max-width: 420px;
+}
+.options-explain h3 {
+    color: var(--accent);
+    font-family: var(--font-title);
+    font-size: 1.1rem;
+    margin-top: 0;
+}
+.options-explain ul {
+    margin: 0.5rem 0 0 1.2rem;
+    padding: 0;
+    list-style: disc;
+}
+.options-explain li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+.options .input-group {
+    flex: 1 1 180px;
+    min-width: 180px;
+    max-width: 260px;
+    margin-bottom: 0.5rem;
+}
+.options .input-group label {
+    font-size: 0.98rem;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+}
+.options .input-group input[type="number"] {
+    width: 48%;
+    display: inline-block;
+    margin-right: 2%;
+}
+.options .input-group input[type="number"]:last-child {
+    margin-right: 0;
+}
+@media (max-width: 900px) {
+    .options {
+        flex-direction: column;
+        gap: 1.2rem;
+    }
+    .options-explain {
+        max-width: 100%;
+        margin-bottom: 1.2rem;
+    }
+    main { padding: 1rem; }
+    .inputs, .options { flex-direction: column; gap: 1rem; }
+    .actions { flex-direction: column; gap: 1rem; }
+}
