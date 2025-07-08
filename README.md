@@ -1,5 +1,7 @@
 # Otimizador de Vídeos Web
 
+**[🇺🇸 English Version](README_en.md)**
+
 Uma aplicação web moderna para otimizar vídeos direto do navegador, com suporte a Docker, aceleração por GPU (NVIDIA) e fallback automático para CPU.
 
 ---
