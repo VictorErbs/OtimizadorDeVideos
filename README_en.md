@@ -22,8 +22,11 @@ A modern web application to optimize videos directly from your browser, with Doc
    docker run -it --rm --gpus all -p 5000:5000 video-optimizer
    ```
 7. **Open your browser and go to:** [http://localhost:5000](http://localhost:5000)
+
 8. Upload your video, choose the options and click Optimize. The download will start automatically.
 
+---
+> **Note:** Currently, hardware acceleration is only available for NVIDIA GPUs via NVENC. There is no support for AMD or Intel acceleration due to ffmpeg and Docker ecosystem limitations.
 ---
 
 ## Common issues and solutions

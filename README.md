@@ -24,8 +24,11 @@ Uma aplicação web moderna para otimizar vídeos direto do navegador, com supor
    docker run -it --rm --gpus all -p 5000:5000 otimizador-video
    ```
 7. **Acesse no navegador:** [http://localhost:5000](http://localhost:5000)
+
 8. Faça upload do vídeo, escolha as opções e clique em Otimizar. O download inicia automaticamente.
 
+---
+> **Nota:** Atualmente, a aceleração por hardware só está disponível para GPUs NVIDIA via NVENC. Não há suporte para aceleração AMD ou Intel devido a limitações do ffmpeg e do ecossistema Docker.
 ---
 
 ## Possíveis problemas e soluções
