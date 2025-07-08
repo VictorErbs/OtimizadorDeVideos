@@ -81,7 +81,7 @@ Otimizador_Video/
 ## Notes
 
 - 2-pass only works with CPU
-- Denoise always works
+- Denoise is optional and can be enabled/disabled during optimization
 - The system automatically detects available encoders
 - Backend automatically falls back to CPU if GPU is not available
 
